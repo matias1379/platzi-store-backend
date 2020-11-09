@@ -1,0 +1,31 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - '12'
+
+git:
+  depth: 3
+
+script:
+  - yarn test
+
+notifications:
+  email:
+    reciepients:
+      - matiaspierri60@gmail.com  
+    on_success: always
+    on_failure: always
+
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: a6b3fe35-adea-4575-b276-6bf0be40b5ea # desde heroku
+  app: platzi-travis-backend
+  on:
+    repo: matias1379/platzi-store-backend
